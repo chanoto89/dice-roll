@@ -1,0 +1,67 @@
+<div class="jumbotron">
+  <h1>Dice Roll Game</h1>
+  <p>This is the ultimate dice rolling game. It's simple, guess your number and try to roll that number</p>
+  <br />
+  <p><i>"Hey. They laughed at Louis Armstrong when he said he was gonna go to the moon. Now he’s up there, laughing at them."</i></p>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center">
+      <label for="diceInput">Select your guess between 2 and 12: </label>
+      <input id="diceInput" class="diceInput" type="number" min="1" max="6" [(ngModel)]="guessNumber" name="diceInput"/>
+      <div class="alert alert-danger" role="alert" *ngIf="isError">Is that between 2 and 12? No, it is not...</div>
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center dice-roll">
+      <button type="button" class="btn btn-primary" (click)="rollDice()" [disabled]="isDiceRolling">Roll Dice</button>
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center dice-images">
+      <img [src]="diceOneSrc" width="75px" height="75px" />
+      <img [src]="diceTwoSrc" width="75px" height="75px" />
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="isWinner || isLoser">
+  <div class="col-xs-12">
+    <div class="text-center dice-images">
+      <span>Total: {{gameTotal}}</span> 
+      <span>Your Guess: {{gameGuess}}</span>
+      <div class="alert" [class.alert-success]="isWinner" [class.alert-danger]="isLoser">
+        <span>{{endGameMessage}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .diceInput {
+    margin-left: 5px;
+    width: 50px;
+  }
+
+  .alert-danger {
+    margin-top: 10px;
+  }
+
+  .text-center {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dice-roll, .dice-images {
+    margin-top: 10px;
+  }
+
+</style>
