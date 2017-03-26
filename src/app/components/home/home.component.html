@@ -9,7 +9,7 @@
   <div class="col-xs-12">
     <div class="text-center">
       <label for="diceInput">Select your guess between 2 and 12: </label>
-      <input id="diceInput" class="diceInput" type="number" min="1" max="6" [(ngModel)]="guessNumber" name="diceInput"/>
+      <input id="diceInput" class="diceInput" type="number" min="1" max="12" [(ngModel)]="guessNumber" name="diceInput"/>
       <div class="alert alert-danger" role="alert" *ngIf="isError">Is that between 2 and 12? No, it is not...</div>
   </div>
   </div>
